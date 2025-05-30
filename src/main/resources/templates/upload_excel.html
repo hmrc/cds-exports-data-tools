@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+    <title>Upload Page: Excel Json Utility</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+    <style>
+        .parentContainer{
+            height: 750px;
+            display: inline-flex;
+        }
+        #leftPanel{
+        width: 350px;
+            text-align: center;
+        }
+
+         #rightPanel{
+        width: 550px;
+        padding-left:25px;
+        }
+
+        .mb-3{
+            text-align: center;
+        }
+        table >tbody >tr {
+        height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="fragments/header :: header"></div>
+<h3 class="mb-3">Upload file to convert to Json</h3>
+
+<div th:if="${message != null}" class="alert alert-secondary alert-dismissible fade show text-center message mt-3" role="alert">
+    [[${message}]]
+    <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="parentContainer" >
+    <div id="leftPanel">
+
+
+    </div>
+    <div id="rightPanel">
+        <form id="uploadForm" method="post" th:action="@{/files/upload}" enctype="multipart/form-data">
+
+            <table>
+                <tr>
+                    <td> Select the file type</td>
+                    <td>
+                        <select id="fileType" name="fileType">
+                            <option value="select">Select</option>
+                            <option value="goodsLocationCode2">Goods Location Code with Name and Code Columns</option>
+                            <option value="goodsLocationCode">Goods Location Code with Name, Address and Code columns</option>
+                            <option value="goodsLocationCode3">Goods Location Code with en, cy and Code Columns</option>
+                            <option value="additionalDocumentCodes">Additional Document Codes with Document-Codes-Requiring-A-Reason</option>
+                            <option value="statusCodesRequiringAReason">Additional Document Codes with Status-Codes-Requiring-A-Reason</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="input-file" type="file" name="file" />
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-success float-right" type="submit"> Upload </button>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+
+
+</html>
+
