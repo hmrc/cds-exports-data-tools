@@ -1,8 +1,7 @@
 
 # cds-exports-data-tools
 
-This is a placeholder README.md for a new repository
+This application can be accessed at http://localhost:1212/files/newfile
 
 ### License
 
-This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
